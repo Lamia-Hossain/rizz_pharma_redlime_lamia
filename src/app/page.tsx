@@ -1,3 +1,4 @@
+import Category from "@/components/Category";
 import homeBg from "../../public/homeBg.png";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -14,14 +15,17 @@ export default function Home() {
     >
       <Navbar />
 
-      {/* Hero Section */}
-      <section>
-        <Hero />
-      </section>
+      <div className="flex flex-col gap-10">
+        {/* Hero Section */}
+        <section>
+          <Hero />
+        </section>
 
-      <section className="min-h-screen flex items-center justify-center text-white bg-opacity-50">
-        <p className="text-2xl">Another section content</p>
-      </section>
+        {/* Shoy By Category Section */}
+        <section>
+          <Category />
+        </section>
+      </div>
 
       {/* Add more sections as needed */}
     </div>
