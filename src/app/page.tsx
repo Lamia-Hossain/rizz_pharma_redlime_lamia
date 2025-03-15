@@ -13,7 +13,9 @@ export default function Home() {
       }}
     >
       <Navbar />
-      <section className="min-h-screen flex items-center justify-center text-white">
+
+      {/* Hero Section */}
+      <section>
         <Hero />
       </section>
 
