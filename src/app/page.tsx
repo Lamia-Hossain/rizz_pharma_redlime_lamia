@@ -2,6 +2,7 @@ import Category from "@/components/Category";
 import homeBg from "../../public/homeBg.png";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import FeatureBar from "@/components/FeatureBar";
 
 export default function Home() {
   return (
@@ -24,6 +25,10 @@ export default function Home() {
         {/* Shoy By Category Section */}
         <section>
           <Category />
+        </section>
+
+        <section>
+          <FeatureBar />
         </section>
       </div>
 

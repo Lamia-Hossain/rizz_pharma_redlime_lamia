@@ -8,7 +8,7 @@ import c5 from "../../public/category-images/c5.png";
 import c6 from "../../public/category-images/c6.png";
 import SearchBar from "./Searchbar";
 
-const CategoryGrid = () => {
+const Category = () => {
   const categoryList = [
     { id: 1, name: "Weight Loss", image: c1 },
     { id: 2, name: "Testossterone HRT", image: c2 },
@@ -51,4 +51,4 @@ const CategoryGrid = () => {
   );
 };
 
-export default CategoryGrid;
+export default Category;
