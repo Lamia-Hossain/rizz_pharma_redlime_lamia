@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import FeatureBar from "@/components/FeatureBar";
 import Products from "@/components/Products";
+import Add from "@/components/Add";
 
 export default function Home() {
   return (
@@ -34,6 +35,10 @@ export default function Home() {
 
         <section>
           <Products />
+        </section>
+
+        <section>
+          <Add />
         </section>
       </div>
 
