@@ -15,8 +15,6 @@ export default function Home() {
         className=" bg-no-repeat bg-cover"
         style={{
           backgroundImage: `url(${homeBg.src})`,
-          backgroundSize: "fixed",
-          backgroundRepeat: "no-repeat",
         }}
       >
         <Navbar />

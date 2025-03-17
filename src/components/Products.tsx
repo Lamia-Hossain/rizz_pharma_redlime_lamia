@@ -9,6 +9,8 @@ import PT_141 from "../../public/product-images/PT_141.png";
 import Retarutide from "../../public/product-images/Retarutide.png";
 import Sermorelin from "../../public/product-images/Sermorelin.png";
 import { LiaCartPlusSolid } from "react-icons/lia";
+import { FaArrowRight } from "react-icons/fa6";
+import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 
 const categories = [
   "All",
@@ -17,6 +19,7 @@ const categories = [
   "Beauty And Hair Loss",
   "Testosterone/HRT",
   "Sexual Health",
+  "arrow",
 ];
 
 const products = [
@@ -97,18 +100,20 @@ const Product = () => {
   const filteredProducts =
     selectedCategory === "All"
       ? products
+      : selectedCategory === "arrow"
+      ? products
       : products.filter((product) => product.tags.includes(selectedCategory));
 
   return (
-    <div className="px-6 md:px-10 lg:px-20 text-white min-h-screen flex flex-col gap-10">
-      <h3 className="mt-10 font-[Impact] font-normal text-[24px] md:text-[32px] lg:text-[48px] leading-[120%] tracking-[0%] capitalize text-center">
+    <div className="px-6 md:px-10 lg:px-20 my-10 text-white min-h-screen flex flex-col gap-10">
+      <h3 className="font-[Impact] font-normal text-[24px] md:text-[32px] lg:text-[48px] leading-[120%] tracking-[0%] capitalize text-center">
         Solutions For Your <span className="text-[#ECC974]">Unique</span> Health
         Goals
       </h3>
 
       {/* Category Filters */}
       <div className="flex justify-center gap-4 flex-wrap mb-8">
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
@@ -118,7 +123,7 @@ const Product = () => {
                 : "border-white text-white hover:bg-yellow-500 hover:text-black"
             }`}
           >
-            {category}
+            {index === 6 ? <FaArrowRight /> : category}
           </button>
         ))}
       </div>
@@ -162,6 +167,15 @@ const Product = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex gap-4 justify-center">
+        <div className="bg-[#E1C06E] p-3 rounded-full">
+          <IoIosArrowRoundBack className="text-black size-8" />
+        </div>
+        <div className="bg-[#E1C06E] p-3 rounded-full">
+          <IoIosArrowRoundForward className="text-black size-8" />
+        </div>
       </div>
     </div>
   );

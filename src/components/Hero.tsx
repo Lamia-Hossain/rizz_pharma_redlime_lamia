@@ -5,7 +5,9 @@ const Hero = () => {
     <div className="lg:min-h-[80vh] px-6 md:px-10 lg:px-20 flex lg:grid grid-cols-2 lg:justify-center text-white">
       <div className="flex flex-col gap-6 my-10">
         <h1 className="font-[Impact] font-normal text-[50px] md:text-[60px] lg:text-[80px] leading-[120%] tracking-[0%] capitalize text-left">
-          Prescription treatments for your
+          Prescription treatments for
+          <br />
+          your
           <br />
           <span className="text-[#ECC974]">health goals</span>
         </h1>

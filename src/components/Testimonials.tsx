@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { MdOutlineStar, MdStar } from "react-icons/md";
 import JohnTestimonial from "../../public/testimonial-images/JohnTestimonial.png";
+import bg from "../../public/testimonial-images/bg.png";
 import quote from "../../public/testimonial-images/quote.png";
 import starFilled from "../../public/testimonial-images/starFilled.png";
 import starEmpty from "../../public/testimonial-images/starEmpty.png";
@@ -118,9 +118,16 @@ const Testimonial = () => {
         >
           {loopedTestimonials.map((testimonial, index) => (
             <div key={index} className="w-full sm:w-1/2 md:w-1/3 p-4">
-              <div className="bg-gray-800 rounded-lg p-6 shadow-md flex flex-col gap-2 items-center">
+              <div
+                className="bg-gray-800/50 rounded-lg p-6 shadow-md flex flex-col gap-2 items-center bg-no-repeat bg-cover overflow-hidden"
+                style={{
+                  backgroundImage: `url(${bg.src})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
                 <Image src={quote} alt="quote" className="mr-auto" />
-                <p className="text-gray-300 italic mb-4">{testimonial.text}</p>
+                <p className="text-gray-300 mb-4">{testimonial.text}</p>
 
                 <div className="flex mb-2">
                   {renderStars(testimonial.rating)}

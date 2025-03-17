@@ -65,9 +65,7 @@ const Footer = () => {
               <div key={index} className="mx-auto lg:mx-0">
                 <div className="flex flex-col gap-10 justify-between h-full">
                   <div>
-                    <h3 className="text-lg font-semibold mb-3">
-                      {section.title}
-                    </h3>
+                    <h3 className="text-[12px] mb-3">{section.title}</h3>
                     <ul className="space-y-6 text-gray-300">
                       {section.links.map((link) => (
                         <li key={link.name}>
@@ -83,9 +81,7 @@ const Footer = () => {
                   </div>
                   {index === 0 && (
                     <div className="mt-auto">
-                      <h3 className="text-lg font-semibold mb-3">
-                        Contact Info
-                      </h3>
+                      <h3 className="text-[12px] mb-3">Contact Info</h3>
                       <div className="flex gap-2">
                         <CiMail className="size-5" />{" "}
                         <a
