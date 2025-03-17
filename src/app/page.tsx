@@ -6,47 +6,50 @@ import FeatureBar from "@/components/FeatureBar";
 import Products from "@/components/Products";
 import Add from "@/components/Add";
 import Testimonial from "@/components/Testimonials";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div
-      className="min-h-screen w-full bg-no-repeat bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${homeBg.src})`,
-        backgroundSize: "fixed",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <Navbar />
+    <div className="w-full">
+      <div
+        className=" bg-no-repeat bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${homeBg.src})`,
+          backgroundSize: "fixed",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <Navbar />
 
-      <div className="flex flex-col gap-10">
-        {/* Hero Section */}
-        <section>
-          <Hero />
-        </section>
+        <div className="flex flex-col gap-10">
+          {/* Hero Section */}
+          <section>
+            <Hero />
+          </section>
 
-        {/* Shoy By Category Section */}
-        <section>
-          <Category />
-        </section>
+          {/* Shoy By Category Section */}
+          <section>
+            <Category />
+          </section>
 
-        <section>
-          <FeatureBar />
-        </section>
+          <section>
+            <FeatureBar />
+          </section>
 
-        <section>
-          <Products />
-        </section>
+          <section>
+            <Products />
+          </section>
 
-        <section>
-          <Add />
-        </section>
+          <section>
+            <Add />
+          </section>
 
-        <section>
-          <Testimonial />
-        </section>
+          <section>
+            <Testimonial />
+          </section>
+        </div>
       </div>
-
+      <Footer />
       {/* Add more sections as needed */}
     </div>
   );
