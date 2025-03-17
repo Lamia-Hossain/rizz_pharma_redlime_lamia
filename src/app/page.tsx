@@ -3,7 +3,7 @@ import homeBg from "../../public/homeBg.png";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import FeatureBar from "@/components/FeatureBar";
-import Solutions from "@/components/Solutions";
+import Products from "@/components/Products";
 
 export default function Home() {
   return (
@@ -33,7 +33,7 @@ export default function Home() {
         </section>
 
         <section>
-          <Solutions />
+          <Products />
         </section>
       </div>
 
