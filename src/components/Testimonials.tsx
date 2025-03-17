@@ -2,8 +2,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { MdOutlineStar, MdStar } from "react-icons/md";
-import JohnTestimonial from "../../public/JohnTestimonial.png";
-import quote from "../../public/quote.png";
+import JohnTestimonial from "../../public/testimonial-images/JohnTestimonial.png";
+import quote from "../../public/testimonial-images/quote.png";
+import starFilled from "../../public/testimonial-images/starFilled.png";
+import starEmpty from "../../public/testimonial-images/starEmpty.png";
 
 const Testimonial = () => {
   const testimonials = [
@@ -39,23 +41,23 @@ const Testimonial = () => {
 
   // Add a fake slide for infinite loop effect
   const loopedTestimonials = [
-    testimonials[testimonials.length - 1], // fake slide at the beginning
+    testimonials[testimonials.length - 1],
     ...testimonials,
-    testimonials[0], // fake slide at the end
+    testimonials[0],
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(1); // Start with the real first slide
+  const [currentIndex, setCurrentIndex] = useState(2);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex(
-        (prevIndex) => (prevIndex + 1) % loopedTestimonials.length
-      );
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentIndex(
+  //       (prevIndex) => (prevIndex + 1) % loopedTestimonials.length
+  //     );
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, [loopedTestimonials.length]);
+  //   return () => clearInterval(interval);
+  // }, [loopedTestimonials.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -63,32 +65,37 @@ const Testimonial = () => {
       sliderRef.current.style.transition = "transform 0.5s ease-in-out";
       sliderRef.current.style.transform = `translateX(-${
         ((index - 1) * 100) / 3
-      }%)`; // Adjust width for 3 visible items
+      }%)`;
     }
   };
 
   const renderStars = (rating: number) => {
     return [...Array(5)].map((_, i) => (
-      <span key={i} className="text-yellow-400 text-xl">
-        {i < rating ? <MdStar /> : <MdOutlineStar />}
-      </span>
+      <Image
+        key={i}
+        src={i < rating ? starFilled : starEmpty}
+        alt={i < rating ? "Filled Star" : "Empty Star"}
+        width={20}
+        height={20}
+        className="mr-1"
+      />
     ));
   };
 
   return (
-    <div className="text-white relative w-full overflow-hidden flex flex-col gap-10">
-      <h3 className="mt-10 font-[Impact] font-normal text-[24px] md:text-[32px] lg:text-[48px] leading-[120%] tracking-[0%] capitalize text-center">
+    <div className="text-white relative w-full overflow-hidden flex flex-col gap-10 my-20">
+      <h3 className="font-[Impact] font-normal text-[24px] md:text-[32px] lg:text-[48px] leading-[120%] tracking-[0%] capitalize text-center">
         Hear What <span className="text-[#ECC974]">Rizz</span> Patients Have To
         Say
       </h3>
 
       {/* Slider Container */}
-      <div className="overflow-hidden w-full relative mb-14">
+      <div className="overflow-hidden w-full mb-14">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
             width: `${loopedTestimonials.length * 33.33}%`, // Adjust width for 3 visible items on larger screens
-            transform: `translateX(-${((currentIndex - 1) * 100) / 3}%)`, // Adjust the transform to show 3 items
+            transform: `translateX(-${((currentIndex - 1) * 100) / 4}%)`, // Adjust the transform to show 3 items
           }}
           ref={sliderRef}
         >
@@ -128,7 +135,7 @@ const Testimonial = () => {
             className={`h-3 w-3 rounded-full transition-all ${
               currentIndex === index + 1 ? "bg-white scale-110" : "bg-gray-500"
             }`}
-            onClick={() => goToSlide(index + 1)} // Start from index 1 (real first slide)
+            onClick={() => goToSlide(index + 1)}
           />
         ))}
       </div>
