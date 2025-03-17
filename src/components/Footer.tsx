@@ -122,7 +122,7 @@ const Footer = () => {
         </div>
 
         {/* Branding */}
-        <Image src={Branding} alt="Rizz Pharma" />
+        <Image src={Branding} alt="Rizz Pharma" className="mx-auto" />
       </div>
     </footer>
   );
