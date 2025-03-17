@@ -25,7 +25,7 @@ const Category = () => {
   ];
 
   return (
-    <div className="px-6 md:px-10 lg:px-20 flex flex-col items-center gap-10">
+    <div className="px-6 md:px-10 lg:px-20 flex flex-col items-center gap-10 text-white">
       {/* Search Bar */}
       <SearchBar />
 

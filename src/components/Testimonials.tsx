@@ -38,6 +38,7 @@ const Testimonial = () => {
       image: JohnTestimonial,
     },
   ];
+  const [widthPercentage, setWidthPercentage] = useState(33.33); // Default for md-lg
 
   // Add a fake slide for infinite loop effect
   const loopedTestimonials = [
@@ -82,8 +83,24 @@ const Testimonial = () => {
     ));
   };
 
+  useEffect(() => {
+    const updateWidth = () => {
+      if (window.innerWidth < 768) {
+        // Small screens (sm)
+        setWidthPercentage(50);
+      } else {
+        // Medium to large screens (md, lg)
+        setWidthPercentage(33.33);
+      }
+    };
+
+    updateWidth(); // Set width on initial load
+    window.addEventListener("resize", updateWidth); // Update on resize
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
   return (
-    <div className="text-white relative w-full overflow-hidden flex flex-col gap-10 my-20">
+    <div className="text-white relative w-full overflow-hidden flex flex-col gap-10 mt-20 mb-24">
       <h3 className="font-[Impact] font-normal text-[24px] md:text-[32px] lg:text-[48px] leading-[120%] tracking-[0%] capitalize text-center">
         Hear What <span className="text-[#ECC974]">Rizz</span> Patients Have To
         Say
@@ -94,8 +111,8 @@ const Testimonial = () => {
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
-            width: `${loopedTestimonials.length * 33.33}%`, // Adjust width for 3 visible items on larger screens
-            transform: `translateX(-${((currentIndex - 1) * 100) / 4}%)`, // Adjust the transform to show 3 items
+            width: `${loopedTestimonials.length * widthPercentage}%`,
+            transform: `translateX(-${((currentIndex - 1) * 100) / 4}%)`,
           }}
           ref={sliderRef}
         >

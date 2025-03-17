@@ -11,7 +11,7 @@ const features = [
 const Add = () => {
   return (
     <div
-      className="lg:min-h-screen w-full bg-cover bg-no-repeat bg-center px-6 md:px-10 lg:px-20 py-4 md:py-8 lg:py-16 text-white"
+      className="lg:min-h-screen w-full bg-cover bg-no-repeat bg-center px-6 md:px-10 lg:px-20 py-16 text-white"
       style={{
         backgroundImage: `url(${AddBG.src})`,
       }}

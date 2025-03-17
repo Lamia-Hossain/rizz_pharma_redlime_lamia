@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="w-full">
       <div
-        className=" bg-no-repeat bg-cover bg-center"
+        className=" bg-no-repeat bg-cover"
         style={{
           backgroundImage: `url(${homeBg.src})`,
           backgroundSize: "fixed",
