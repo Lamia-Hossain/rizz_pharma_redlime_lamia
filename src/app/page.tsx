@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import FeatureBar from "@/components/FeatureBar";
 import Products from "@/components/Products";
 import Add from "@/components/Add";
+import Testimonial from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -39,6 +40,10 @@ export default function Home() {
 
         <section>
           <Add />
+        </section>
+
+        <section>
+          <Testimonial />
         </section>
       </div>
 
